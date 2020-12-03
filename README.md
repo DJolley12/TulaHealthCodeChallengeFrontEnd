@@ -1,3 +1,7 @@
+# Description
+
+This is the front end of the app. I used Bootstrap, and React for this portion. The app is set up to use CORS on the api side making this easy to run with the npm start command, if you have node installed.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

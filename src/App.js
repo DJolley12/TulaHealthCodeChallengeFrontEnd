@@ -1,22 +1,33 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import FileUpload from "./FileUpload/FileUpload";
+import DisplayData from "./DisplayData/DisplayData";
 import './App.css';
+import NavBar from './NavBar/NavBar';
 
 function App() {
+  const [fileUploadSelected, setFileUploadSelected] = useState(false);
+  const [viewDataSelected, setViewDataSelected] = useState(true);
+
+  function fileCallback(event) {
+    setFileUploadSelected(event);  
+  }
+  
+  function viewDataCallback(event) {
+    setViewDataSelected(event);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <NavBar 
+          fileUploadSelected={fileUploadSelected}
+          fileCallback={fileCallback}
+          viewDataSelected={viewDataSelected}
+          viewDataCallback={viewDataCallback}
+        />
+        {fileUploadSelected && <FileUpload />}
+        {viewDataSelected && <DisplayData />}
+
       </header>
     </div>
   );
